@@ -1,19 +1,26 @@
+import React from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import { useState } from "react";
 
-const AddUser = (props) => {
-  const [enteredUsername, setEnteredUsername] = useState("");
+type AddUserProps = {
+  onAddUser: (uName: string, uAge: string) => void;
+};
+
+const AddUser = (props: AddUserProps) => {
+  const [enteredUsername, setEnteredUsername] = useState<string>("");
   const [enteredAge, setEnteredAge] = useState("");
 
-  const usernameChangeHandler = (event) => {
+  const usernameChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setEnteredUsername(event.target.value);
   };
-  const ageChangeHandler = (event) => {
+  const ageChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEnteredAge(event.target.value);
   };
 
-  const addUserHandler = (event) => {
+  const addUserHandler = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       return;

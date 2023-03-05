@@ -1,11 +1,15 @@
+import React from "react";
 import AddUser from "./components/Users/AddUser";
 import UsersList from "./components/Users/UsersList";
 import { useState } from "react";
 
-function App() {
-  const [usersList, setUsersList] = useState([]);
+type Apptypes = {};
+const App: React.FC<Apptypes> = () => {
+  const [usersList, setUsersList] = useState<
+    { name: string; age: string; id: string }[]
+  >([]);
 
-  const addUserHandler = (uName, uAge) => {
+  const addUserHandler = (uName: string, uAge: string) => {
     setUsersList((prevUsersList) => {
       return [
         ...prevUsersList,
@@ -20,6 +24,6 @@ function App() {
       <UsersList users={usersList} />
     </div>
   );
-}
+};
 
 export default App;

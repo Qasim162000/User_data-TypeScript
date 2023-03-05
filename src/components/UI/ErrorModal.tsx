@@ -1,12 +1,13 @@
-import styles from "./ErrorModal.module.css";
+import React from "react";
 import Card from "./Card";
-import Button from "./Button";
+// import styles from "./ErrorModal.module.css";
+// import Button from "./Button";
 
 const ErrorModal = () => {
   return (
     <Card>
       <header>
-        <h1></h1>
+        <h1>Error</h1>
       </header>
       <div>
         <p></p>
